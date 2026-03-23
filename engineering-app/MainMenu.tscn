@@ -1,0 +1,238 @@
+[gd_scene load_steps=7 format=3 uid="uid://01mofht27tlg"]
+
+[ext_resource type="Script" uid="uid://dfbggjl4b8xn3" path="res://main_menu.gd" id="1_h7a2f"]
+[ext_resource type="Theme" uid="uid://df21f5x4bcnao" path="res://button1.tres" id="2_eiy7p"]
+[ext_resource type="Texture2D" uid="uid://ccfudduc2lge8" path="res://Assets/Orange Background.png" id="2_h7a2f"]
+[ext_resource type="Script" uid="uid://cn2fgdwlyvsfk" path="res://subject_menu.gd" id="3_qoqlk"]
+
+[sub_resource type="FontVariation" id="FontVariation_h7a2f"]
+
+[sub_resource type="FontVariation" id="FontVariation_qoqlk"]
+
+[node name="Main Menu" type="Node2D"]
+script = ExtResource("1_h7a2f")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1200.0
+offset_bottom = 680.0
+texture = ExtResource("2_h7a2f")
+expand_mode = 3
+
+[node name="Default Buttons" type="Control" parent="TextureRect"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Subjects" type="Button" parent="TextureRect/Default Buttons"]
+layout_mode = 0
+offset_left = 450.0
+offset_top = 225.0
+offset_right = 750.0
+offset_bottom = 325.0
+theme = ExtResource("2_eiy7p")
+theme_override_fonts/font = SubResource("FontVariation_h7a2f")
+theme_override_font_sizes/font_size = 16
+text = "Subjects"
+
+[node name="Settings" type="Button" parent="TextureRect/Default Buttons"]
+layout_mode = 0
+offset_left = 450.0
+offset_top = 350.0
+offset_right = 750.0
+offset_bottom = 450.0
+theme = ExtResource("2_eiy7p")
+theme_override_fonts/font = SubResource("FontVariation_h7a2f")
+theme_override_font_sizes/font_size = 16
+text = "Settings
+"
+
+[node name="Quit" type="Button" parent="TextureRect/Default Buttons"]
+layout_mode = 0
+offset_left = 450.0
+offset_top = 475.0
+offset_right = 750.0
+offset_bottom = 575.0
+theme = ExtResource("2_eiy7p")
+theme_override_fonts/font = SubResource("FontVariation_h7a2f")
+theme_override_font_sizes/font_size = 16
+text = "Quit
+"
+
+[node name="Subject Menu" type="Panel" parent="."]
+offset_left = 114.0
+offset_top = 75.0
+offset_right = 1095.0
+offset_bottom = 642.0
+script = ExtResource("3_qoqlk")
+
+[node name="Subject Buttons" type="Control" parent="Subject Menu"]
+anchors_preset = 0
+offset_left = -114.0
+offset_top = -75.0
+offset_right = -74.0
+offset_bottom = -35.0
+
+[node name="Math" type="Button" parent="Subject Menu/Subject Buttons"]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 110.0
+offset_right = 360.0
+offset_bottom = 160.0
+theme = ExtResource("2_eiy7p")
+theme_override_fonts/font = SubResource("FontVariation_qoqlk")
+theme_override_font_sizes/font_size = 16
+text = "Mathematics"
+
+[node name="Probability and Statistics" type="Button" parent="Subject Menu/Subject Buttons"]
+layout_mode = 0
+offset_left = 500.0
+offset_top = 110.0
+offset_right = 700.0
+offset_bottom = 160.0
+theme = ExtResource("2_eiy7p")
+theme_override_fonts/font = SubResource("FontVariation_qoqlk")
+theme_override_font_sizes/font_size = 16
+text = "Probability and Statistics"
+
+[node name="Economics" type="Button" parent="Subject Menu/Subject Buttons"]
+layout_mode = 0
+offset_left = 840.0
+offset_top = 110.0
+offset_right = 1040.0
+offset_bottom = 160.0
+theme = ExtResource("2_eiy7p")
+theme_override_fonts/font = SubResource("FontVariation_qoqlk")
+theme_override_font_sizes/font_size = 16
+text = "Economics"
+
+[node name="Electricity and Magnetism" type="Button" parent="Subject Menu/Subject Buttons"]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 200.0
+offset_right = 360.0
+offset_bottom = 250.0
+theme = ExtResource("2_eiy7p")
+theme_override_fonts/font = SubResource("FontVariation_qoqlk")
+theme_override_font_sizes/font_size = 16
+text = "Electricity and Magnetism
+"
+
+[node name="Statics" type="Button" parent="Subject Menu/Subject Buttons"]
+layout_mode = 0
+offset_left = 500.0
+offset_top = 200.0
+offset_right = 700.0
+offset_bottom = 250.0
+theme = ExtResource("2_eiy7p")
+theme_override_fonts/font = SubResource("FontVariation_qoqlk")
+theme_override_font_sizes/font_size = 16
+text = "Statics"
+
+[node name="Dynamics" type="Button" parent="Subject Menu/Subject Buttons"]
+layout_mode = 0
+offset_left = 840.0
+offset_top = 200.0
+offset_right = 1040.0
+offset_bottom = 250.0
+theme = ExtResource("2_eiy7p")
+theme_override_fonts/font = SubResource("FontVariation_qoqlk")
+theme_override_font_sizes/font_size = 16
+text = "Dynamics
+"
+
+[node name="Mech O Mats" type="Button" parent="Subject Menu/Subject Buttons"]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 290.0
+offset_right = 360.0
+offset_bottom = 340.0
+theme = ExtResource("2_eiy7p")
+theme_override_fonts/font = SubResource("FontVariation_qoqlk")
+theme_override_font_sizes/font_size = 16
+text = "Material Mechanics"
+
+[node name="Fluids" type="Button" parent="Subject Menu/Subject Buttons"]
+layout_mode = 0
+offset_left = 500.0
+offset_top = 290.0
+offset_right = 700.0
+offset_bottom = 340.0
+theme = ExtResource("2_eiy7p")
+theme_override_fonts/font = SubResource("FontVariation_qoqlk")
+theme_override_font_sizes/font_size = 16
+text = "Fluids"
+
+[node name="Thermo" type="Button" parent="Subject Menu/Subject Buttons"]
+layout_mode = 0
+offset_left = 840.0
+offset_top = 290.0
+offset_right = 1040.0
+offset_bottom = 340.0
+theme = ExtResource("2_eiy7p")
+theme_override_fonts/font = SubResource("FontVariation_qoqlk")
+theme_override_font_sizes/font_size = 16
+text = "Thermodynamics
+"
+
+[node name="Heat Transfer" type="Button" parent="Subject Menu/Subject Buttons"]
+layout_mode = 0
+offset_left = 160.0
+offset_top = 380.0
+offset_right = 360.0
+offset_bottom = 430.0
+theme = ExtResource("2_eiy7p")
+theme_override_fonts/font = SubResource("FontVariation_qoqlk")
+theme_override_font_sizes/font_size = 16
+text = "Heat Transfer"
+
+[node name="Controls" type="Button" parent="Subject Menu/Subject Buttons"]
+layout_mode = 0
+offset_left = 500.0
+offset_top = 380.0
+offset_right = 700.0
+offset_bottom = 430.0
+theme = ExtResource("2_eiy7p")
+theme_override_fonts/font = SubResource("FontVariation_qoqlk")
+theme_override_font_sizes/font_size = 16
+text = "Controls"
+
+[node name="Material Science" type="Button" parent="Subject Menu/Subject Buttons"]
+layout_mode = 0
+offset_left = 840.0
+offset_top = 380.0
+offset_right = 1040.0
+offset_bottom = 430.0
+theme = ExtResource("2_eiy7p")
+theme_override_fonts/font = SubResource("FontVariation_qoqlk")
+theme_override_font_sizes/font_size = 16
+text = "Material Science
+"
+
+[node name="Mech Design" type="Button" parent="Subject Menu/Subject Buttons"]
+layout_mode = 0
+offset_left = 350.0
+offset_top = 470.0
+offset_right = 550.0
+offset_bottom = 520.0
+theme = ExtResource("2_eiy7p")
+theme_override_fonts/font = SubResource("FontVariation_qoqlk")
+theme_override_font_sizes/font_size = 16
+text = "Mecahnical Design"
+
+[node name="Random" type="Button" parent="Subject Menu/Subject Buttons"]
+layout_mode = 0
+offset_left = 650.0
+offset_top = 470.0
+offset_right = 850.0
+offset_bottom = 520.0
+theme = ExtResource("2_eiy7p")
+theme_override_fonts/font = SubResource("FontVariation_qoqlk")
+theme_override_font_sizes/font_size = 16
+text = "Random
+"
+
+[connection signal="pressed" from="TextureRect/Default Buttons/Subjects" to="." method="_on_subjects_pressed"]
+[connection signal="pressed" from="TextureRect/Default Buttons/Settings" to="." method="_on_settings_pressed"]
+[connection signal="pressed" from="TextureRect/Default Buttons/Quit" to="." method="_on_quit_pressed"]
+[connection signal="pressed" from="Subject Menu/Subject Buttons/Economics" to="Subject Menu" method="_on_economics_pressed"]
+[connection signal="pressed" from="Subject Menu/Subject Buttons/Heat Transfer" to="Subject Menu" method="_on_heat_transfer_pressed"]

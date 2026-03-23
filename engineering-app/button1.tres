@@ -1,0 +1,75 @@
+[gd_resource type="Theme" load_steps=9 format=3 uid="uid://df21f5x4bcnao"]
+
+[ext_resource type="Texture2D" uid="uid://cmnrk3qtwelks" path="res://Assets/Default.png" id="1_j0i74"]
+[ext_resource type="Texture2D" uid="uid://cy4lxoni2poob" path="res://Assets/Hover.png" id="2_jst46"]
+
+[sub_resource type="FontFile" id="FontFile_j5ect"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/20/0/ascent = 0.0
+cache/0/20/0/descent = 0.0
+cache/0/20/0/underline_position = 0.0
+cache/0/20/0/underline_thickness = 0.0
+cache/0/20/0/scale = 1.0
+cache/0/30/0/ascent = 0.0
+cache/0/30/0/descent = 0.0
+cache/0/30/0/underline_position = 0.0
+cache/0/30/0/underline_thickness = 0.0
+cache/0/30/0/scale = 1.0
+cache/0/24/0/ascent = 0.0
+cache/0/24/0/descent = 0.0
+cache/0/24/0/underline_position = 0.0
+cache/0/24/0/underline_thickness = 0.0
+cache/0/24/0/scale = 1.0
+cache/0/14/0/ascent = 0.0
+cache/0/14/0/descent = 0.0
+cache/0/14/0/underline_position = 0.0
+cache/0/14/0/underline_thickness = 0.0
+cache/0/14/0/scale = 1.0
+cache/0/28/0/ascent = 0.0
+cache/0/28/0/descent = 0.0
+cache/0/28/0/underline_position = 0.0
+cache/0/28/0/underline_thickness = 0.0
+cache/0/28/0/scale = 1.0
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_j0i74"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_jst46"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j5ect"]
+texture = ExtResource("2_jst46")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_3svpt"]
+texture = ExtResource("1_j0i74")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_j0i74"]
+texture = ExtResource("1_j0i74")
+
+[resource]
+Button/colors/font_color = Color(0.52039206, 0.28743428, 0.1650849, 1)
+Button/colors/font_disabled_color = Color(0.875, 0.875, 0.875, 0.5)
+Button/colors/font_focus_color = Color(0.52156866, 0.28627452, 0.16470589, 1)
+Button/colors/font_hover_color = Color(0.8302732, 0.549016, 0.432717, 1)
+Button/colors/font_hover_pressed_color = Color(0.83137256, 0.54901963, 0.43137255, 1)
+Button/colors/font_outline_color = Color(0, 0, 0, 1)
+Button/colors/font_pressed_color = Color(0.52156866, 0.28627452, 0.16470589, 1)
+Button/colors/icon_disabled_color = Color(1, 1, 1, 0.4)
+Button/colors/icon_focus_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_color = Color(1, 1, 1, 1)
+Button/colors/icon_hover_pressed_color = Color(0.83137256, 0.54901963, 0.43137255, 1)
+Button/colors/icon_normal_color = Color(1, 1, 1, 1)
+Button/colors/icon_pressed_color = Color(1, 1, 1, 1)
+Button/constants/align_to_largest_stylebox = 0
+Button/constants/h_separation = 4
+Button/constants/icon_max_width = 0
+Button/constants/outline_size = 0
+Button/font_sizes/font_size = 16
+Button/fonts/font = SubResource("FontFile_j5ect")
+Button/styles/disabled = SubResource("StyleBoxEmpty_j0i74")
+Button/styles/focus = SubResource("StyleBoxEmpty_jst46")
+Button/styles/hover = SubResource("StyleBoxTexture_j5ect")
+Button/styles/normal = SubResource("StyleBoxTexture_3svpt")
+Button/styles/pressed = SubResource("StyleBoxTexture_j0i74")
