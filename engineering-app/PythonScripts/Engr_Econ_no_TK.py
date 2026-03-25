@@ -18,7 +18,7 @@ def single_future_payment(F, n, i): # AKA Single Payment Present Worth
     
     question = "What is the present worth of $" + str(F) + " received " + str(n) + " years from now at an interest rate of " + str(i) + "% compounded annually?" 
     
-    P = F / ((1 + (i / 100))**n)
+    P = round((F / ((1 + (i / 100))**n)), 3)
     
     #return P
     question += '@' # symbol to separate question and answer for Godot parsing
@@ -29,7 +29,7 @@ def single_future_payment(F, n, i): # AKA Single Payment Present Worth
 def single_present_compound(P, n, i):
     question = "You invest $" + str(P) + " today in an account that earns "  + str(i) + "% annual interest compounded annually. What will be the future worth of this investment after " + str(n) + " years?" 
     
-    F = P * ((1 + (i / 100))**n)
+    F = round(((P * ((1 + (i / 100))**n))), 3)
     
     #return P
     question += '@' # symbol to separate question and answer for Godot parsing
@@ -44,7 +44,7 @@ def uni_A_F(A, n, i):
     
     question = "A piece of equipment requires uniform annual maintenance costs of $" + str(A) + " each year for " + str(n) + " years. If the interest rate is " + str(i) + "% per year, what is the future worth (F) of these costs at the end of year" + str(n) + "?"
     i = i / 100
-    F = A * (((1 + i)**n - 1) / i)
+    F = round((A * (((1 + i)**n - 1) / i)), 3)
     #return F
     question += '@' # symbol to separate question and answer for Godot parsing
     print(question)
@@ -57,7 +57,7 @@ def uni_P_A(P, n, i):
 
     
     i = i / 100
-    A = P * ((i * (1 + i)**n ) / ((1+i)**n - 1))
+    A = round((P * ((i * (1 + i)**n ) / ((1+i)**n - 1))), 3)
     #return A
     question += '@' # symbol to separate question and answer for Godot parsing
     print(question)
@@ -70,7 +70,7 @@ def uni_F_A(F, n, i):
 
     
     i = i / 100
-    A =  F * (i /((1 + i)**n - 1))
+    A = round((F * (i /((1 + i)**n - 1))), 3)
     #return A
     question += '@' # symbol to separate question and answer for Godot parsing
     print(question)
@@ -82,7 +82,7 @@ def uni_A_P(A, n, i):
 
     
     i = i / 100
-    P = A * (((1 + i)**n - 1) / (i * (1 + i)**n))
+    P = round((A * (((1 + i)**n - 1) / (i * (1 + i)**n))), 3)
     #return P
     question += '@' # symbol to separate question and answer for Godot parsing
     print(question)
@@ -108,7 +108,7 @@ def salvage_value(P, n, i): # AKA Capital Recovery problem
     #print(cap_factor)
     #print(salvage_factor)       
     
-    A = (P * cap_factor) - (sal_val * salvage_factor)
+    A = round(((P * cap_factor) - (sal_val * salvage_factor)), 3)
     
     #return A
     question += '@' # symbol to separate question and answer for Godot parsing
@@ -122,7 +122,8 @@ def salvage_value(P, n, i): # AKA Capital Recovery problem
 def BC_one(P, n, i):
     if n < 5:
         n = 5 
-        
+    
+    i = i / 100   
         
     
     A_cost = random.randint(P // 20, 3 * (P // 20))
@@ -141,18 +142,21 @@ def BC_one(P, n, i):
     BC = PW_benefit / PW_cost
     
     if BC < 1:
-        answer = "Not economically justified" 
+        answer = 2 # Not economically justified
     else: # Includes BC = 1 case
-        answer = "Economically justified"
+        answer = 1 # Economically justified"
         
     #return answer
     question += '@' # symbol to separate question and answer for Godot parsing 
+    #print(BC)
     print(question)
     print(answer)   
     
 def BC_two(P_A, n, i):    
     if n < 5:
         n = 5  
+    
+    i = i / 100       
         
     AA_cost = random.randint(P_A // 20, 3 * (P_A // 20))
     AA_benefit = random.randint(3 * (P_A // 20), 3 * (P_A // 10))    
@@ -187,10 +191,9 @@ def BC_two(P_A, n, i):
     
     question = "The interest rate is " + str(i) + "% per year, and both projects have a " + str(n) + "-year life. Which project should be selected based on an incremental B/C analysis?"
 
+    question += '@' # symbol to separate question and answer for Godot parsing 
     
     
-    
-    i = i / 100   
     
     PW_factor = (((1 + i)**n - 1) / (i * (1 + i)**n)) 
     
@@ -205,18 +208,18 @@ def BC_two(P_A, n, i):
         
     BC = PW_benefit / PW_cost
     
-    print("B / C = " + str(BC)) # Checking logic for negatives  
+    #print("B / C = " + str(BC)) # Checking logic for negatives  
     
     if BC < 1:
         if P_A < P_B:
-            answer = "Select Alternative A"
+            answer = 1 # Select Alternative A
         else:
-            answer = "Select Alternative B"    
+            answer = 2 # Select Alternative B
     else: # Includes BC = 1 case
         if P_A < P_B:
-            answer = "Select Alternative B"   
+            answer = 2 # Select Alternative B
         else:
-            answer = "Select Alternative A"     
+            answer = 1 # Select Alternative A     
     
     print(question)
     print(table_str)
@@ -236,10 +239,12 @@ def payback_equal(P):
 
     question = "A company purchases a machine for $" + str(P) + ". It generates annual net cash inflows of $" + str(A)
 
-    question = "What is the payback period for the machine?"
+    question += '\n' + "What is the payback period for the machine?"
+    
+    question += '@' # symbol to separate question and answer for Godot parsing 
 
     
-    n = P / A
+    n = round((P / A), 3)
     
     print(question)
     print(n)
@@ -271,17 +276,17 @@ def payback_unequal(P):
                 greater_year = n # year where the sum is greater than P
                 greater_sum = sum - A_next
                  
-            if n < 6: # setting max table values to 6
+            if n < 5: # setting max table values to 6
                 stay = random.randint(0, 3) # 50 / 50 if n continues when sum > P
             else:
                 stay = 0   
     
     table = [
-        ["TABLE_START","Year", "Net Cash Inflow ($)"] 
+        ["Year", "Net Cash Inflow ($)"] 
     ]
     
     for idx in range(len(A)):
-        row = [str(idx + 1), str(A[idx])]
+        row = ["@" + str(idx + 1), str(A[idx])]
         table.append(row)    
     
     table_str = "@TABLE_START@"
@@ -291,16 +296,18 @@ def payback_unequal(P):
     
     table_str += "@TABLE_END@"    
     
-    question = "A company is considering purchasing a new machine for $" + str(P) + ". The machine is expected to generate the following net cash inflows over the next " + str(len(A)) + "years:"
+    question = "A company is considering purchasing a new machine for $" + str(P) + ". The machine is expected to generate the following net cash inflows over the next " + str(len(A)) + " years:"
     
+    question +=  '\n' + "Calculate the payback period (years to 2 decimal places) for the machine."
+    
+    question += '@' # symbol to separate question and answer for Godot parsing 
 
     
-    question = "Calculate the payback period for the machine."
  
-    exact_year = greater_year - 1 + ((P - greater_sum + A[greater_year]) / A[greater_year])
+    exact_year = round((greater_year - 1 + ((P - greater_sum + A[greater_year]) / A[greater_year])), 3)
     
     print(question)
-    print
+    print(table_str)
     
     print(exact_year)
     #return exact_year
@@ -316,9 +323,9 @@ def breakeven():
     
     table = [
         ["Parameter", "Value"],
-        ["Fixed Costs", "$" + str(A) + " per year"],
-        ["Variable Cost", "$" + str(var_cost) + " per fan"],
-        ["Selling Price", "$" + str(sell_price) + " per fan"]
+        ["@Fixed Costs", "$" + str(A) + " per year"],
+        ["@Variable Cost", "$" + str(var_cost) + " per fan"],
+        ["@Selling Price", "$" + str(sell_price) + " per fan"]
     ]
     
     table_str = "@TABLE_START@"
@@ -333,11 +340,11 @@ def breakeven():
     units = random.choice([True, False]) # variable to determine whether answer is in dollars or units
     
     if units == True:
-        question = "Determine the break-even quantity:"
+        question += '\n' + "Determine the break-even quantity:"
         answer = Q_BE
     else:
-        question = "Determine the break-even revenue:"
-        answer = Q_BE * sell_price
+        question += '\n' + "Determine the break-even revenue:"
+        answer = round((Q_BE * sell_price), 3)
 
     print(question)
     print(table_str)
@@ -353,11 +360,12 @@ def single_ROR(P, n):
     
     question = "An engineer invests $" + str(P) + " and receives $" + str(F) + " after " + str(n) + " years. What is the rate of return?"
 
+    question += '@' # symbol to separate question and answer for Godot parsing 
     
     i = (F / P)**(1 / n) - 1
     
     print(question)
-    print(i * 100)
+    print(round((i * 100), 3))
     #return i * 100
     
 def uniform_ROR():
@@ -378,6 +386,7 @@ def real_rate():
     
     question = "If the nominal interest rate is " + str(d) + "% per year and the inflation rate is " + str(f) + "% per year, what is the real interest rate?"
 
+    question += '@' # symbol to separate question and answer for Godot parsing 
     
     d = d / 100
     f = f / 100 
@@ -386,7 +395,7 @@ def real_rate():
     
     #return i * 100
     print(question)
-    print(i * 100)
+    print(round((i * 100), 3))
 
 def nom_rate():
     i = random.randint(1, 14) / 2 # Real interest rate
@@ -394,6 +403,7 @@ def nom_rate():
     
     question = "An investment offers a real rate of return of " + str(i) + "% per year when inflation is " + str(f) + "%. Find the nominal interest rate."
 
+    question += '@' # symbol to separate question and answer for Godot parsing 
     
     i = i / 100
     f = f / 100 
@@ -401,7 +411,7 @@ def nom_rate():
     d = i + f + (i * f)
     
     print(question)
-    print(d * 100)
+    print(round((d * 100), 3))
     
     #return d * 100
 
@@ -417,6 +427,7 @@ def inflation(P, n):
     
     question = "You invest $" + str(P) + " for " + str(n) + " years at a nominal rate of " + str(d) + "%, while inflation averages " + str(f) + "% per year. Find the real future value in today’s dollars."
 
+    question += '@' # symbol to separate question and answer for Godot parsing 
     
     d = d / 100
     f = f / 100
@@ -424,7 +435,7 @@ def inflation(P, n):
     F = P * (d + 1)**n
     #print(F)
     
-    F_real = F / ((1 + f)**n)
+    F_real = round((F / ((1 + f)**n)), 3)
     
     print(question)
     print(F_real)
@@ -438,12 +449,14 @@ def inflation(P, n):
 def loan(P, n, i):
     question = "A $" +  str(P) + " loan is to be repaid in equal annual payments over " + str(n) + " years at " + str(i) + "% interest."
 
-    question = "What is the annual payment?"
+    question += '\n' + "What is the annual payment?"
+    
+    question += '@' # symbol to separate question and answer for Godot parsing 
 
     
     i = i / 100
     
-    A = P * ((i * (1 + i)**n ) / ((1+i)**n - 1))
+    A = round((P * ((i * (1 + i)**n ) / ((1+i)**n - 1))), 3)
     
     print(question)
     print(A)
@@ -453,7 +466,9 @@ def loan(P, n, i):
 def mortgage(P, n, i):
     question = "A $" + str(P) + " mortgage is issued at " + str(i) + "% annual interest, compounded monthly, for " + str(n) + " years."
 
-    question = "Find the monthly payment."
+    question += '\n' + "Find the monthly payment."
+    
+    question += '@' # symbol to separate question and answer for Godot parsing 
 
     
     i = i / 100
@@ -462,22 +477,24 @@ def mortgage(P, n, i):
     
     N = n * 12
     
-    A = P * ((i_m * (1 + i_m)**N ) / ((1+i_m)**N - 1))
+    A = round((P * ((i_m * (1 + i_m)**N ) / ((1+i_m)**N - 1))), 3)
     
     print(question)
     print(A)
     
     #return A
     
-def sink_fund(F, n, i, frame):
+def sink_fund(F, n, i):
     question = "You want $" + str(F) + " in " + str(n) + " years and can earn " + str(i) + "% interest per year."
 
-    question = "How much must you deposit annually?"
+    question += '\n' + "How much must you deposit annually?"
+    
+    question += '@' # symbol to separate question and answer for Godot parsing 
 
     
     i = i / 100
     
-    A = F * (i /((1 + i)**n - 1))
+    A = round((F * (i /((1 + i)**n - 1))), 3)
     
     print(question)
     print(A)
@@ -486,7 +503,7 @@ def sink_fund(F, n, i, frame):
 
 ################################################# Straight Line Depreciation #################################################
 
-def SLD(P, n, frame):
+def SLD(P, n):
     
     min = P // 10
     max = P // 2
@@ -497,15 +514,17 @@ def SLD(P, n, frame):
     
     question = "A machine costs $" + str(P) + " , has an estimated salvage value of $" + str(sal_val) + ", and a useful life of " + str(n) + " years."
 
-    question = "Using the straight-line method, determine: "
+    question += '\n' + '"Using the straight-line method, determine: "'
 
-    question = "1. The annual depreciation "
+    question += '\n' + "1. The annual depreciation "
 
-    question = "2. The book value at the end of year " + str(year)
+    question += '\n' + "2. The book value at the end of year " + str(year)
 
+    question += '@' # symbol to separate question and answer for Godot parsing 
     
-    D = (P - sal_val) / n
-    BV = P - (D * year)
+    
+    D = round(((P - sal_val) / n), 3)
+    BV = round((P - (D * year)), 3)
     
     answer = "Annual Depreciation: " + str(D) + "Book Value: " + str(BV) # rework answer formatting for Godot parsing
     print(question)
@@ -570,6 +589,8 @@ def question_maker(min, max):
     else:    
         test = random.randint(min,max)
     
+    print(str(test) + "@")
+    
     func = function_names[test]
     
     param_num = len((inspect.signature(func)).parameters)
@@ -581,6 +602,8 @@ def question_maker(min, max):
         func(amount, years)
     elif param_num  == 1:
         func(amount)
+    elif param_num == 0:
+        func()    
     else:
         print("Error: Function has incorrect number of parameters.")
 
@@ -597,4 +620,5 @@ def test():
 args = sys.argv
 min = int(args[1])
 max = int(args[2])
+
 question_maker(min, max) # testing single future payment question generation  

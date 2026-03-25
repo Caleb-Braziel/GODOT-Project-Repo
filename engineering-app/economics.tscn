@@ -1,19 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://4q032kesahm7"]
+[gd_scene load_steps=7 format=3 uid="uid://4q032kesahm7"]
 
 [ext_resource type="Texture2D" uid="uid://ccfudduc2lge8" path="res://Assets/Orange Background.png" id="1_vbjtu"]
 [ext_resource type="Script" uid="uid://cx2ryp2tm3a55" path="res://econ.gd" id="2_2jgdu"]
 [ext_resource type="Theme" uid="uid://df21f5x4bcnao" path="res://button1.tres" id="3_3h81i"]
+[ext_resource type="Theme" uid="uid://haxmu5hqabbq" path="res://Table.tres" id="4_3h81i"]
 
 [sub_resource type="FontVariation" id="FontVariation_t2oxt"]
 
-[node name="Economics" type="Node2D"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_3h81i"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0, 0, 0, 1)
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = 152.0
-offset_top = 51.0
-offset_right = 1052.0
-offset_bottom = 633.0
-color = Color(0.8862616, 0.88626146, 0.8862615, 1)
+[node name="Economics" type="Node2D"]
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 1200.0
@@ -22,22 +24,30 @@ pivot_offset = Vector2(485, -73)
 texture = ExtResource("1_vbjtu")
 expand_mode = 3
 
-[node name="Subject Menu" type="Panel" parent="."]
+[node name="Subject Menu" type="Panel" parent="TextureRect"]
 visible = false
-offset_left = 114.0
-offset_top = 75.0
-offset_right = 1095.0
-offset_bottom = 642.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -490.5
+offset_top = -283.5
+offset_right = 490.5
+offset_bottom = 283.5
+grow_horizontal = 2
+grow_vertical = 2
 script = ExtResource("2_2jgdu")
 
-[node name="Sub Categories" type="Control" parent="Subject Menu"]
+[node name="Sub Categories" type="Control" parent="TextureRect/Subject Menu"]
 anchors_preset = 0
 offset_left = -114.0
 offset_top = -75.0
 offset_right = -74.0
 offset_bottom = -35.0
 
-[node name="SinglePay" type="Button" parent="Subject Menu/Sub Categories"]
+[node name="SinglePay" type="Button" parent="TextureRect/Subject Menu/Sub Categories"]
 layout_mode = 0
 offset_left = 200.0
 offset_top = 100.0
@@ -48,7 +58,7 @@ theme_override_fonts/font = SubResource("FontVariation_t2oxt")
 theme_override_font_sizes/font_size = 16
 text = "Single Payment"
 
-[node name="Uniform" type="Button" parent="Subject Menu/Sub Categories"]
+[node name="Uniform" type="Button" parent="TextureRect/Subject Menu/Sub Categories"]
 layout_mode = 0
 offset_left = 500.0
 offset_top = 100.0
@@ -59,7 +69,7 @@ theme_override_fonts/font = SubResource("FontVariation_t2oxt")
 theme_override_font_sizes/font_size = 16
 text = "Uniform_Pay"
 
-[node name="Salvage" type="Button" parent="Subject Menu/Sub Categories"]
+[node name="Salvage" type="Button" parent="TextureRect/Subject Menu/Sub Categories"]
 layout_mode = 0
 offset_left = 800.0
 offset_top = 100.0
@@ -70,7 +80,7 @@ theme_override_fonts/font = SubResource("FontVariation_t2oxt")
 theme_override_font_sizes/font_size = 16
 text = "Salvage Value"
 
-[node name="CostBenefit" type="Button" parent="Subject Menu/Sub Categories"]
+[node name="CostBenefit" type="Button" parent="TextureRect/Subject Menu/Sub Categories"]
 layout_mode = 0
 offset_left = 200.0
 offset_top = 208.0
@@ -81,7 +91,7 @@ theme_override_fonts/font = SubResource("FontVariation_t2oxt")
 theme_override_font_sizes/font_size = 16
 text = "Cost Benefit"
 
-[node name="Payback" type="Button" parent="Subject Menu/Sub Categories"]
+[node name="Payback" type="Button" parent="TextureRect/Subject Menu/Sub Categories"]
 layout_mode = 0
 offset_left = 500.0
 offset_top = 208.0
@@ -92,7 +102,7 @@ theme_override_fonts/font = SubResource("FontVariation_t2oxt")
 theme_override_font_sizes/font_size = 16
 text = "Payback Period"
 
-[node name="Breakeven" type="Button" parent="Subject Menu/Sub Categories"]
+[node name="Breakeven" type="Button" parent="TextureRect/Subject Menu/Sub Categories"]
 layout_mode = 0
 offset_left = 800.0
 offset_top = 208.0
@@ -103,7 +113,7 @@ theme_override_fonts/font = SubResource("FontVariation_t2oxt")
 theme_override_font_sizes/font_size = 16
 text = "Breakeven"
 
-[node name="ROR" type="Button" parent="Subject Menu/Sub Categories"]
+[node name="ROR" type="Button" parent="TextureRect/Subject Menu/Sub Categories"]
 layout_mode = 0
 offset_left = 200.0
 offset_top = 320.0
@@ -114,7 +124,7 @@ theme_override_fonts/font = SubResource("FontVariation_t2oxt")
 theme_override_font_sizes/font_size = 16
 text = "ROR"
 
-[node name="Rates" type="Button" parent="Subject Menu/Sub Categories"]
+[node name="Rates" type="Button" parent="TextureRect/Subject Menu/Sub Categories"]
 layout_mode = 0
 offset_left = 500.0
 offset_top = 320.0
@@ -125,7 +135,7 @@ theme_override_fonts/font = SubResource("FontVariation_t2oxt")
 theme_override_font_sizes/font_size = 16
 text = "Real / Nominal Rates"
 
-[node name="Inflation" type="Button" parent="Subject Menu/Sub Categories"]
+[node name="Inflation" type="Button" parent="TextureRect/Subject Menu/Sub Categories"]
 layout_mode = 0
 offset_left = 800.0
 offset_top = 320.0
@@ -136,7 +146,7 @@ theme_override_fonts/font = SubResource("FontVariation_t2oxt")
 theme_override_font_sizes/font_size = 16
 text = "Inflation"
 
-[node name="Mortgage" type="Button" parent="Subject Menu/Sub Categories"]
+[node name="Mortgage" type="Button" parent="TextureRect/Subject Menu/Sub Categories"]
 layout_mode = 0
 offset_left = 200.0
 offset_top = 436.0
@@ -147,7 +157,7 @@ theme_override_fonts/font = SubResource("FontVariation_t2oxt")
 theme_override_font_sizes/font_size = 16
 text = "Loan / Mortgage"
 
-[node name="SinkFund" type="Button" parent="Subject Menu/Sub Categories"]
+[node name="SinkFund" type="Button" parent="TextureRect/Subject Menu/Sub Categories"]
 layout_mode = 0
 offset_left = 500.0
 offset_top = 436.0
@@ -158,7 +168,7 @@ theme_override_fonts/font = SubResource("FontVariation_t2oxt")
 theme_override_font_sizes/font_size = 16
 text = "Sink Fund"
 
-[node name="SLD" type="Button" parent="Subject Menu/Sub Categories"]
+[node name="SLD" type="Button" parent="TextureRect/Subject Menu/Sub Categories"]
 layout_mode = 0
 offset_left = 800.0
 offset_top = 436.0
@@ -169,7 +179,7 @@ theme_override_fonts/font = SubResource("FontVariation_t2oxt")
 theme_override_font_sizes/font_size = 16
 text = "Straight Line Dep"
 
-[node name="Random" type="Button" parent="Subject Menu/Sub Categories"]
+[node name="Random" type="Button" parent="TextureRect/Subject Menu/Sub Categories"]
 layout_mode = 0
 offset_left = 200.0
 offset_top = 550.0
@@ -181,237 +191,390 @@ theme_override_font_sizes/font_size = 16
 text = "Random
 "
 
-[node name="Question Menu" type="Panel" parent="."]
-offset_right = 46.0
+[node name="Question Menu" type="Panel" parent="TextureRect"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.0
+offset_right = 23.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Question" type="Label" parent="Question Menu"]
-layout_mode = 0
-offset_left = 200.0
-offset_top = 102.0
-offset_right = 1003.0
-offset_bottom = 254.0
+[node name="Question" type="Label" parent="TextureRect/Question Menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -401.5
+offset_top = -300.0
+offset_right = 401.5
+offset_bottom = -148.0
+grow_horizontal = 2
+grow_vertical = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 autowrap_mode = 3
 
-[node name="Submit" type="Button" parent="Question Menu"]
-layout_mode = 0
-offset_left = 750.0
-offset_top = 550.0
-offset_right = 950.0
-offset_bottom = 600.0
-theme = ExtResource("3_3h81i")
-theme_override_fonts/font = SubResource("FontVariation_t2oxt")
-theme_override_font_sizes/font_size = 16
-text = "Submit
-"
+[node name="Table" type="VBoxContainer" parent="TextureRect/Question Menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -169.5
+offset_top = -102.5
+offset_right = 169.5
+offset_bottom = 102.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/separation = 40
 
-[node name="Reveal" type="Button" parent="Question Menu"]
-layout_mode = 0
-offset_left = 450.0
-offset_top = 550.0
-offset_right = 650.0
-offset_bottom = 600.0
-theme = ExtResource("3_3h81i")
-theme_override_fonts/font = SubResource("FontVariation_t2oxt")
-theme_override_font_sizes/font_size = 16
-text = "Reveal Answer
-"
-
-[node name="New Q" type="Button" parent="Question Menu"]
-layout_mode = 0
-offset_left = 150.0
-offset_top = 550.0
-offset_right = 350.0
-offset_bottom = 600.0
-theme = ExtResource("3_3h81i")
-theme_override_fonts/font = SubResource("FontVariation_t2oxt")
-theme_override_font_sizes/font_size = 16
-text = "New Question
-"
-
-[node name="Table" type="VBoxContainer" parent="Question Menu"]
-layout_mode = 0
-offset_left = 417.0
-offset_top = 255.0
-offset_right = 756.0
-offset_bottom = 445.0
-
-[node name="TableBack" type="ColorRect" parent="Question Menu/Table"]
-custom_minimum_size = Vector2(0, 155)
+[node name="TableBack" type="ColorRect" parent="TextureRect/Question Menu/Table"]
+custom_minimum_size = Vector2(0, 172)
 layout_mode = 2
 
-[node name="ColorRect" type="ColorRect" parent="Question Menu/Table/TableBack"]
-layout_mode = 0
-offset_right = 339.0
-offset_bottom = 35.0
+[node name="ColorRect" type="ColorRect" parent="TextureRect/Question Menu/Table/TableBack"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -169.5
+offset_right = 169.5
+offset_bottom = 44.0
+grow_horizontal = 2
 color = Color(0.19850826, 0.42802674, 0.7347047, 1)
 
-[node name="GridContainer" type="GridContainer" parent="Question Menu/Table/TableBack"]
+[node name="TableGrid" type="GridContainer" parent="TextureRect/Question Menu/Table/TableBack"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
 columns = 4
 
-[node name="1" type="Label" parent="Question Menu/Table/TableBack/GridContainer"]
-custom_minimum_size = Vector2(0, 35)
+[node name="1" type="Label" parent="TextureRect/Question Menu/Table/TableBack/TableGrid"]
+visible = false
+custom_minimum_size = Vector2(0, 44)
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 0
+theme = ExtResource("4_3h81i")
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-horizontal_alignment = 1
-autowrap_mode = 3
-
-[node name="2" type="Label" parent="Question Menu/Table/TableBack/GridContainer"]
-custom_minimum_size = Vector2(0, 35)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-horizontal_alignment = 1
-autowrap_mode = 3
-
-[node name="3" type="Label" parent="Question Menu/Table/TableBack/GridContainer"]
-custom_minimum_size = Vector2(0, 35)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-horizontal_alignment = 1
-autowrap_mode = 3
-
-[node name="4" type="Label" parent="Question Menu/Table/TableBack/GridContainer"]
-custom_minimum_size = Vector2(0, 35)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 1
+theme_override_styles/normal = SubResource("StyleBoxFlat_3h81i")
 horizontal_alignment = 1
 vertical_alignment = 1
 autowrap_mode = 3
 
-[node name="5" type="Label" parent="Question Menu/Table/TableBack/GridContainer"]
-custom_minimum_size = Vector2(0, 35)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-horizontal_alignment = 1
-autowrap_mode = 3
-
-[node name="6" type="Label" parent="Question Menu/Table/TableBack/GridContainer"]
-custom_minimum_size = Vector2(0, 35)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-horizontal_alignment = 1
-autowrap_mode = 3
-
-[node name="7" type="Label" parent="Question Menu/Table/TableBack/GridContainer"]
-custom_minimum_size = Vector2(0, 35)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-horizontal_alignment = 1
-autowrap_mode = 3
-
-[node name="8" type="Label" parent="Question Menu/Table/TableBack/GridContainer"]
-custom_minimum_size = Vector2(0, 35)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-horizontal_alignment = 1
-autowrap_mode = 3
-
-[node name="9" type="Label" parent="Question Menu/Table/TableBack/GridContainer"]
-custom_minimum_size = Vector2(0, 35)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-horizontal_alignment = 1
-autowrap_mode = 3
-
-[node name="10" type="Label" parent="Question Menu/Table/TableBack/GridContainer"]
-custom_minimum_size = Vector2(0, 35)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-horizontal_alignment = 1
-autowrap_mode = 3
-
-[node name="11" type="Label" parent="Question Menu/Table/TableBack/GridContainer"]
-custom_minimum_size = Vector2(0, 35)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-horizontal_alignment = 1
-autowrap_mode = 3
-
-[node name="12" type="Label" parent="Question Menu/Table/TableBack/GridContainer"]
-custom_minimum_size = Vector2(0, 35)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-horizontal_alignment = 1
-autowrap_mode = 3
-
-[node name="13" type="Label" parent="Question Menu/Table/TableBack/GridContainer"]
-custom_minimum_size = Vector2(0, 35)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-horizontal_alignment = 1
-autowrap_mode = 3
-
-[node name="14" type="Label" parent="Question Menu/Table/TableBack/GridContainer"]
-custom_minimum_size = Vector2(0, 35)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-horizontal_alignment = 1
-autowrap_mode = 3
-
-[node name="15" type="Label" parent="Question Menu/Table/TableBack/GridContainer"]
-custom_minimum_size = Vector2(0, 35)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-horizontal_alignment = 1
-autowrap_mode = 3
-
-[node name="16" type="Label" parent="Question Menu/Table/TableBack/GridContainer"]
-custom_minimum_size = Vector2(0, 35)
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 0
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-horizontal_alignment = 1
-autowrap_mode = 3
-
-[node name="AnswerBox" type="LineEdit" parent="Question Menu/Table"]
-layout_mode = 2
-
-[node name="Correct" type="Panel" parent="Question Menu"]
+[node name="2" type="Label" parent="TextureRect/Question Menu/Table/TableBack/TableGrid"]
 visible = false
-layout_mode = 0
-offset_left = 349.0
-offset_top = 203.0
-offset_right = 846.0
-offset_bottom = 361.0
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme = ExtResource("4_3h81i")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 1
+theme_override_styles/normal = SubResource("StyleBoxFlat_3h81i")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
 
-[node name="Label" type="Label" parent="Question Menu/Correct"]
+[node name="3" type="Label" parent="TextureRect/Question Menu/Table/TableBack/TableGrid"]
+visible = false
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme = ExtResource("4_3h81i")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 1
+theme_override_styles/normal = SubResource("StyleBoxFlat_3h81i")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="4" type="Label" parent="TextureRect/Question Menu/Table/TableBack/TableGrid"]
+visible = false
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme = ExtResource("4_3h81i")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 1
+theme_override_styles/normal = SubResource("StyleBoxFlat_3h81i")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="5" type="Label" parent="TextureRect/Question Menu/Table/TableBack/TableGrid"]
+visible = false
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme = ExtResource("4_3h81i")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 1
+theme_override_styles/normal = SubResource("StyleBoxFlat_3h81i")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="6" type="Label" parent="TextureRect/Question Menu/Table/TableBack/TableGrid"]
+visible = false
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme = ExtResource("4_3h81i")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 1
+theme_override_styles/normal = SubResource("StyleBoxFlat_3h81i")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="7" type="Label" parent="TextureRect/Question Menu/Table/TableBack/TableGrid"]
+visible = false
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme = ExtResource("4_3h81i")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 1
+theme_override_styles/normal = SubResource("StyleBoxFlat_3h81i")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="8" type="Label" parent="TextureRect/Question Menu/Table/TableBack/TableGrid"]
+visible = false
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme = ExtResource("4_3h81i")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 1
+theme_override_styles/normal = SubResource("StyleBoxFlat_3h81i")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="9" type="Label" parent="TextureRect/Question Menu/Table/TableBack/TableGrid"]
+visible = false
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme = ExtResource("4_3h81i")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 1
+theme_override_styles/normal = SubResource("StyleBoxFlat_3h81i")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="10" type="Label" parent="TextureRect/Question Menu/Table/TableBack/TableGrid"]
+visible = false
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme = ExtResource("4_3h81i")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 1
+theme_override_styles/normal = SubResource("StyleBoxFlat_3h81i")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="11" type="Label" parent="TextureRect/Question Menu/Table/TableBack/TableGrid"]
+visible = false
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme = ExtResource("4_3h81i")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 1
+theme_override_styles/normal = SubResource("StyleBoxFlat_3h81i")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="12" type="Label" parent="TextureRect/Question Menu/Table/TableBack/TableGrid"]
+visible = false
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme = ExtResource("4_3h81i")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 1
+theme_override_styles/normal = SubResource("StyleBoxFlat_3h81i")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="13" type="Label" parent="TextureRect/Question Menu/Table/TableBack/TableGrid"]
+visible = false
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme = ExtResource("4_3h81i")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 1
+theme_override_styles/normal = SubResource("StyleBoxFlat_3h81i")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="14" type="Label" parent="TextureRect/Question Menu/Table/TableBack/TableGrid"]
+visible = false
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme = ExtResource("4_3h81i")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 1
+theme_override_styles/normal = SubResource("StyleBoxFlat_3h81i")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="15" type="Label" parent="TextureRect/Question Menu/Table/TableBack/TableGrid"]
+visible = false
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme = ExtResource("4_3h81i")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 1
+theme_override_styles/normal = SubResource("StyleBoxFlat_3h81i")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="16" type="Label" parent="TextureRect/Question Menu/Table/TableBack/TableGrid"]
+visible = false
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme = ExtResource("4_3h81i")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 1
+theme_override_styles/normal = SubResource("StyleBoxFlat_3h81i")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="17" type="Label" parent="TextureRect/Question Menu/Table/TableBack/TableGrid"]
+visible = false
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme = ExtResource("4_3h81i")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 1
+theme_override_styles/normal = SubResource("StyleBoxFlat_3h81i")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="18" type="Label" parent="TextureRect/Question Menu/Table/TableBack/TableGrid"]
+visible = false
+custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 0
+theme = ExtResource("4_3h81i")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_constants/line_spacing = 1
+theme_override_styles/normal = SubResource("StyleBoxFlat_3h81i")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="AnswerBox" type="LineEdit" parent="TextureRect/Question Menu/Table"]
+layout_mode = 2
+
+[node name="TrueFalse" type="Control" parent="TextureRect/Question Menu"]
+visible = false
+custom_minimum_size = Vector2(100, 40)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -169.0
+offset_top = -20.0
+offset_right = 170.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="choice_container" type="GridContainer" parent="TextureRect/Question Menu/TrueFalse"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 30
+theme_override_constants/v_separation = 40
+
+[node name="Choice1" type="Button" parent="TextureRect/Question Menu/TrueFalse/choice_container"]
+custom_minimum_size = Vector2(150, 46)
+layout_mode = 2
+theme = ExtResource("3_3h81i")
+theme_override_fonts/font = SubResource("FontVariation_t2oxt")
+theme_override_font_sizes/font_size = 16
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="Choice2" type="Button" parent="TextureRect/Question Menu/TrueFalse/choice_container"]
+custom_minimum_size = Vector2(150, 46)
+layout_mode = 2
+theme = ExtResource("3_3h81i")
+theme_override_fonts/font = SubResource("FontVariation_t2oxt")
+theme_override_font_sizes/font_size = 16
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="Correct" type="Panel" parent="TextureRect/Question Menu"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -248.5
+offset_top = -79.0
+offset_right = 248.5
+offset_bottom = 79.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="TextureRect/Question Menu/Correct"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -423,15 +586,48 @@ theme_override_font_sizes/font_size = 75
 text = "Correct"
 horizontal_alignment = 1
 
-[node name="Incorrect" type="Panel" parent="Question Menu"]
+[node name="Show_Ans" type="Panel" parent="TextureRect/Question Menu"]
 visible = false
-layout_mode = 0
-offset_left = 349.0
-offset_top = 203.0
-offset_right = 846.0
-offset_bottom = 361.0
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -248.5
+offset_top = -79.0
+offset_right = 248.5
+offset_bottom = 79.0
+grow_horizontal = 2
+grow_vertical = 2
 
-[node name="Label" type="Label" parent="Question Menu/Incorrect"]
+[node name="Label" type="Label" parent="TextureRect/Question Menu/Show_Ans"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.36717606, 0.75346035, 0.40603414, 1)
+theme_override_font_sizes/font_size = 75
+horizontal_alignment = 1
+
+[node name="Incorrect" type="Panel" parent="TextureRect/Question Menu"]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -248.5
+offset_top = -79.0
+offset_right = 248.5
+offset_bottom = 79.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="TextureRect/Question Menu/Incorrect"]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -443,19 +639,83 @@ theme_override_font_sizes/font_size = 75
 text = "Wrong"
 horizontal_alignment = 1
 
-[connection signal="pressed" from="Subject Menu/Sub Categories/SinglePay" to="Subject Menu" method="_on_single_pay_pressed"]
-[connection signal="pressed" from="Subject Menu/Sub Categories/Uniform" to="Subject Menu" method="_on_uniform_pressed"]
-[connection signal="pressed" from="Subject Menu/Sub Categories/Salvage" to="Subject Menu" method="_on_salvage_pressed"]
-[connection signal="pressed" from="Subject Menu/Sub Categories/CostBenefit" to="Subject Menu" method="_on_cost_benefit_pressed"]
-[connection signal="pressed" from="Subject Menu/Sub Categories/Payback" to="Subject Menu" method="_on_payback_pressed"]
-[connection signal="pressed" from="Subject Menu/Sub Categories/Breakeven" to="Subject Menu" method="_on_breakeven_pressed"]
-[connection signal="pressed" from="Subject Menu/Sub Categories/ROR" to="Subject Menu" method="_on_ror_pressed"]
-[connection signal="pressed" from="Subject Menu/Sub Categories/Rates" to="Subject Menu" method="_on_rates_pressed"]
-[connection signal="pressed" from="Subject Menu/Sub Categories/Inflation" to="Subject Menu" method="_on_inflation_pressed"]
-[connection signal="pressed" from="Subject Menu/Sub Categories/Mortgage" to="Subject Menu" method="_on_mortgage_pressed"]
-[connection signal="pressed" from="Subject Menu/Sub Categories/SinkFund" to="Subject Menu" method="_on_sink_fund_pressed"]
-[connection signal="pressed" from="Subject Menu/Sub Categories/SLD" to="Subject Menu" method="_on_sld_pressed"]
-[connection signal="pressed" from="Subject Menu/Sub Categories/Random" to="Subject Menu" method="_on_random_pressed"]
-[connection signal="pressed" from="Question Menu/Submit" to="Subject Menu" method="_on_submit_pressed"]
-[connection signal="pressed" from="Question Menu/Reveal" to="Subject Menu" method="_on_reveal_pressed"]
-[connection signal="pressed" from="Question Menu/New Q" to="Subject Menu" method="_on_new_q_pressed"]
+[node name="Question Buttons" type="GridContainer" parent="TextureRect/Question Menu"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -250.0
+offset_top = 200.0
+offset_right = 250.0
+offset_bottom = 246.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/h_separation = 200
+columns = 3
+
+[node name="New Q" type="Button" parent="TextureRect/Question Menu/Question Buttons"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme = ExtResource("3_3h81i")
+theme_override_fonts/font = SubResource("FontVariation_t2oxt")
+theme_override_font_sizes/font_size = 16
+text = "New Question
+"
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="Reveal" type="Button" parent="TextureRect/Question Menu/Question Buttons"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme = ExtResource("3_3h81i")
+theme_override_fonts/font = SubResource("FontVariation_t2oxt")
+theme_override_font_sizes/font_size = 16
+text = "Reveal Answer
+"
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="Hide" type="Button" parent="TextureRect/Question Menu/Question Buttons"]
+visible = false
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+theme = ExtResource("3_3h81i")
+theme_override_fonts/font = SubResource("FontVariation_t2oxt")
+theme_override_font_sizes/font_size = 16
+text = "Hide
+"
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[node name="Submit" type="Button" parent="TextureRect/Question Menu/Question Buttons"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+theme = ExtResource("3_3h81i")
+theme_override_fonts/font = SubResource("FontVariation_t2oxt")
+theme_override_font_sizes/font_size = 16
+text = "Submit
+"
+icon_alignment = 1
+vertical_icon_alignment = 0
+
+[connection signal="pressed" from="TextureRect/Subject Menu/Sub Categories/SinglePay" to="TextureRect/Subject Menu" method="_on_single_pay_pressed"]
+[connection signal="pressed" from="TextureRect/Subject Menu/Sub Categories/Uniform" to="TextureRect/Subject Menu" method="_on_uniform_pressed"]
+[connection signal="pressed" from="TextureRect/Subject Menu/Sub Categories/Salvage" to="TextureRect/Subject Menu" method="_on_salvage_pressed"]
+[connection signal="pressed" from="TextureRect/Subject Menu/Sub Categories/CostBenefit" to="TextureRect/Subject Menu" method="_on_cost_benefit_pressed"]
+[connection signal="pressed" from="TextureRect/Subject Menu/Sub Categories/Payback" to="TextureRect/Subject Menu" method="_on_payback_pressed"]
+[connection signal="pressed" from="TextureRect/Subject Menu/Sub Categories/Breakeven" to="TextureRect/Subject Menu" method="_on_breakeven_pressed"]
+[connection signal="pressed" from="TextureRect/Subject Menu/Sub Categories/ROR" to="TextureRect/Subject Menu" method="_on_ror_pressed"]
+[connection signal="pressed" from="TextureRect/Subject Menu/Sub Categories/Rates" to="TextureRect/Subject Menu" method="_on_rates_pressed"]
+[connection signal="pressed" from="TextureRect/Subject Menu/Sub Categories/Inflation" to="TextureRect/Subject Menu" method="_on_inflation_pressed"]
+[connection signal="pressed" from="TextureRect/Subject Menu/Sub Categories/Mortgage" to="TextureRect/Subject Menu" method="_on_mortgage_pressed"]
+[connection signal="pressed" from="TextureRect/Subject Menu/Sub Categories/SinkFund" to="TextureRect/Subject Menu" method="_on_sink_fund_pressed"]
+[connection signal="pressed" from="TextureRect/Subject Menu/Sub Categories/SLD" to="TextureRect/Subject Menu" method="_on_sld_pressed"]
+[connection signal="pressed" from="TextureRect/Subject Menu/Sub Categories/Random" to="TextureRect/Subject Menu" method="_on_random_pressed"]
+[connection signal="pressed" from="TextureRect/Question Menu/Question Buttons/New Q" to="TextureRect/Subject Menu" method="_on_new_q_pressed"]
+[connection signal="pressed" from="TextureRect/Question Menu/Question Buttons/Reveal" to="TextureRect/Subject Menu" method="_on_reveal_pressed"]
+[connection signal="pressed" from="TextureRect/Question Menu/Question Buttons/Hide" to="TextureRect/Subject Menu" method="_on_reveal_pressed"]
+[connection signal="pressed" from="TextureRect/Question Menu/Question Buttons/Submit" to="TextureRect/Subject Menu" method="_on_submit_pressed"]
